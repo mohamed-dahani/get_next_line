@@ -6,11 +6,48 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:24:10 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/21 12:51:26 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/21 13:41:36 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	found_new_line(t_list **list)
+{
+	t_list	*tmp_list;
+	int		i;
+
+	i = 0;
+	tmp_list = *list;
+	while (tmp_list)
+	{
+		while (tmp_list -> buf[i])
+		{
+			if (tmp_list -> buf[i] == '\0')
+				return (1);
+			i++;
+		}
+		tmp_list = tmp_list -> next;
+	}
+	return (0);
+}
+
+void	append(t_list **list, char *buf)
+{
+	t_list	*new_node;
+	t_list	*last_node;
+
+	last_node = find_last_node(*list);
+	new_node = malloc(sizeof(t_list));
+	if (!new_node)
+		return ;
+	if (!last_node)
+		*list = new_node;
+	else
+		last_node -> next = new_node;
+	new_node -> buf = buf;
+	new_node -> next = NULL;
+}
 
 void	create_list(t_list **list, int fd)
 {
