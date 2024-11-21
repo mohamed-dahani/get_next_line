@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:43:44 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/20 16:44:30 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/21 13:38:52 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ typedef struct s_list
 }					t_list;
 
 char	*get_next_line(int fd);
+int		len_to_newline(t_list *list);
 
 #endif
