@@ -6,13 +6,13 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:24:10 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/21 13:41:36 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/21 13:44:50 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	found_new_line(t_list **list)
+int	found_newline(t_list **list)
 {
 	t_list	*tmp_list;
 	int		i;
@@ -54,7 +54,7 @@ void	create_list(t_list **list, int fd)
 	int		char_read;
 	char	*buf;
 
-	while (!found_new_line(*list))
+	while (!found_newline(*list))
 	{
 		buf = malloc(BUFFER_SIZE + 1);
 		if (!buf)
