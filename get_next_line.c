@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:24:10 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/20 16:45:32 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/21 12:51:26 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,23 @@
 
 void	create_list(t_list **list, int fd)
 {
-	
+	int		char_read;
+	char	*buf;
+
+	while (!found_new_line(*list))
+	{
+		buf = malloc(BUFFER_SIZE + 1);
+		if (!buf)
+			return ;
+		char_read = read(fd, buf, BUFFER_SIZE);
+		if (!char_read)
+		{
+			free(buf);
+			return ;
+		}
+		buf[char_read] = '\0';
+		append(list, buf);
+	}
 }
 
 char	*get_next_line(int fd)
