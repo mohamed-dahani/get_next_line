@@ -6,11 +6,26 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:24:10 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/21 13:44:50 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/22 12:35:34 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*get_line(t_list *list)
+{
+	int		str_len;
+	char	*next_str;
+
+	if (!list)
+		return (NULL);
+	str_len = len_to_newline(list);
+	next_str = malloc(str_len + 1);
+	if (!next_str)
+		return (NULL);
+	copy_str(list, next_str);
+	return (next_str);
+}
 
 int	found_newline(t_list **list)
 {
@@ -81,4 +96,5 @@ char	*get_next_line(int fd)
 	create_list(&list, fd);
 	if (!list)
 		return (NULL);
+	next_line = get_line(list);
 }
