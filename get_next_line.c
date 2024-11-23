@@ -6,13 +6,13 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 09:34:59 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/23 10:29:06 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/23 11:51:36 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*fill_line_buffer(int fd, char *left_c, char *buffer)
+static char	*fill_line_buffer(int fd, char *remainder, char *buffer)
 {
 	ssize_t	char_read;
 	char	*tmp;
@@ -22,39 +22,64 @@ char	*fill_line_buffer(int fd, char *left_c, char *buffer)
 		char_read = read(fd, buffer, BUFFER_SIZE);
 		if (char_read == -1)
 		{
-			free(left_c);
+			free(remainder);
 			return (NULL);
 		}
 		else if (char_read == 0)
 			break ;
-		buffer[char_read] = 0;
-		if (!left_c)
-			left_c = ft_strdup("");
-		tmp = left_c;
-		left_c = ft_strjoin(tmp, buffer);
+		buffer[char_read] = '\0';
+		if (!remainder)
+			remainder = ft_strdup("");
+		tmp = remainder;
+		remainder = ft_strjoin(tmp, buffer);
 		free(tmp);
 		tmp = NULL;
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
-	return (left_c);
+	return (remainder);
+}
+
+static char	*set_line(char *line)
+{
+	ssize_t	i;
+	char	*remainder;
+
+	i = 0;
+	while (line[i] && line[i] != '\n')
+		i++;
+	if (line[0] == '\0' || line[1] == '\0')
+		return (NULL);
+	remainder = ft_substr(line, i + 1, ft_strlen(line) - i);
+	if (remainder[0] == '\0')
+	{
+		free(remainder);
+		remainder = NULL;
+	}
+	line[i + 1] = 0;
+	return (remainder);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*left_c;
+	static char	*remainder;
 	char		*buffer;
-	char		*m;
+	char		*line;
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		free(buffer);
 		buffer = NULL;
-		left_c = NULL;
+		remainder = NULL;
 		return (NULL);
 	}
 	if (!buffer)
 		return (NULL);
-	fill_line_buffer(fd, left_c, buffer);
+	line = fill_line_buffer(fd, remainder, buffer);
+	free(buffer);
+	if (!line)
+		return (NULL);
+	remainder = set_line(line);
+	return (remainder);
 }
