@@ -6,11 +6,13 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 09:34:59 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/23 12:55:24 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/23 13:12:23 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char	*ft_strchr(const char *str, int c);
 
 static char	*fill_line_buffer(int fd, char *remainder, char *buffer)
 {
