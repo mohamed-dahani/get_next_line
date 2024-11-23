@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 09:34:59 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/23 12:38:24 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/23 12:55:24 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*fill_line_buffer(int fd, char *remainder, char *buffer)
 	return (remainder);
 }
 
-static char	*set_line(char *line)
+static char	*get_remainder(char *line)
 {
 	ssize_t	i;
 	char	*remainder;
@@ -80,8 +80,8 @@ char	*get_next_line(int fd)
 	free(buffer);
 	if (!line)
 		return (NULL);
-	remainder = set_line(line);
-	return (remainder);
+	remainder = get_remainder(line);
+	return (line);
 }
 
 static char	*ft_strchr(const char *str, int c)
