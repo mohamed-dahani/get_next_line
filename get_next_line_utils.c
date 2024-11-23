@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 10:31:03 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/23 12:10:04 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/23 12:13:29 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 }
 
 size_t	ft_strlen(const char *str)
-
 {
 	size_t	i;
 
