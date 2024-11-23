@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 09:34:59 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/23 11:51:36 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/23 12:38:24 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,22 @@ char	*get_next_line(int fd)
 		return (NULL);
 	remainder = set_line(line);
 	return (remainder);
+}
+
+static char	*ft_strchr(const char *str, int c)
+{
+	unsigned int	i;
+	char			cc;
+
+	i = 0;
+	cc = (char) c;
+	while (str[i])
+	{
+		if (str[i] == cc)
+			return ((char *) &str[i]);
+		i++;
+	}
+	if (str[i] == cc)
+		return ((char *) &str[i]);
+	return (0);
 }
