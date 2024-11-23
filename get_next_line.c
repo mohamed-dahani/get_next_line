@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:24:10 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/22 12:35:34 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/22 15:38:43 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ char	*get_next_line(int fd)
 	if (!list)
 		return (NULL);
 	next_line = get_line(list);
+	polish_list(&list);
 }
