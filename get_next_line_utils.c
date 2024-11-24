@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 10:31:03 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/23 12:37:53 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/24 11:12:09 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		str[i] = s[i + start];
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
