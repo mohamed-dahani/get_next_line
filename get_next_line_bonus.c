@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 18:21:16 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/24 18:48:43 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/27 18:27:44 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	*ft_strchr(char *s, int c);
 
 char	*get_next_line(int fd)
 {
-	static char	*remainder[OPEN_MAX];
+	static char	*remainder[1024];
 	char		*line;
 	char		*buffer;
 

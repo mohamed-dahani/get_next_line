@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 18:21:41 by mdahani           #+#    #+#             */
-/*   Updated: 2024/11/24 18:39:55 by mdahani          ###   ########.fr       */
+/*   Updated: 2024/11/27 18:27:54 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
