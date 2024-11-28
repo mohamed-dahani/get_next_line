@@ -23,7 +23,7 @@ char	*get_next_line(int fd)
 	char		*buffer;
 
 	buffer = malloc(BUFFER_SIZE + 1);
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(remainder);
 		free(buffer);
