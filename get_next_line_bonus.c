@@ -22,7 +22,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	char		*buffer;
 
-	buffer = malloc(BUFFER_SIZE + 1);
+	buffer = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(remainder[fd]);
